@@ -275,8 +275,9 @@
         .topic
         {
             grid-row: 2 / 4;
-            
-            font-weight: 700;
+            font-weight: 900;
+            color: var(--main-color);
+            font-size: 1.6rem;
         }
         .two-three 
         {
@@ -335,9 +336,9 @@
         {
             display: block;
             font-weight: 700;
-            font-family: 'Merriweather', serif;
+            font-family: 'Arimo', sans-serif;
             color: var(--main-color);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             line-height: 16px;
             padding: 0 0 0 0;
             margin: 8px 0 0 0;
@@ -424,13 +425,13 @@
                 <div class="container">
                     <div class="topic-aside year-aside">
                         <div class="topic year">
-                            Topic
+                            Topics
                         </div>
                     </div>
                     <div class="main-content">
                         <div class="topic-content year-content">
-                            <a class="show-all-btn btn btn-primary btn-sm" id="show-all-btn-id" href="#" role="button" style="background-color: var(--main-color); border-color: var(--main-color);" onclick="">Show all</a>
-                            <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="background-color: #39f276; border-color: #39f276;">International Journal</a>
+                            <a class="show-all-btn btn btn-primary btn-sm" id="show-all-btn-id" href="#" role="button" style="background-color: var(--main-color); border-color: var(--main-color);">Show all</a>
+                            <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="background-color: #39f276; border-color: #39f276;" onclick="internationalJournalButton()">International Journal</a>
                             <a class="international-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCC99; border-color: #FFCC99;">International Conference</a>
                             <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCCFF; border-color: #FFCCFF;">Domestic Journal</a>
                             <a class="domestic-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #E5CCFF; border-color: #E5CCFF;">Domestic Conference</a>
@@ -784,7 +785,7 @@
                     </div>
                 </div>
             </div>
-            <div class="international-journal-container year-container blind" id="international-journal-container-topic-id">
+            <div class="international-journal-container year-container" id="international-journal-container-topic-id" onclick="internationalJournalButton();">
                 <div class="container">
                     <div class="international-journal-aside year-aside">
                         <div class="international-journal-year year">
@@ -931,7 +932,7 @@
             }
         });
 
-        function internationalJournal_button() {
+        function internationalJournalButton() {
             console.log('click');
             if($internationalJournalTopicId.classList.contains('blind')) {
                 console.log('not blind');
@@ -951,7 +952,6 @@
                 $internationalJournalTopicId.classList.add('blind'); 
             }
         });
-        
         
 
     </script>
