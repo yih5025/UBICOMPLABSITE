@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBICOMPLAB</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+        body {
+            margin: 0px;
+        }
+        * 
+        {
+            box-sizing: border-box;
+            --main-color: #21358b;
+            --text-color: #222;
+            --link-color: #375eff;
+            --white-color: #fff;
+            --light-grey-color: #f8f8f8;
+            --grey-color: #444;
+            --header-text-color: hsla(0,0%,100%,0.7);
+            --header-text-highlight-color: #fff;
+            --header-border-color: hsla(0,0%,100%,0.15);
+            --header-scrolled-bg-color: hsla(0,0%,100%,0.9);
+            --max-width: 75rem;
+            --mobile-max-width: 48rem;
+            font-family: 'Arimo', sans-serif;
+        }
+        .blind 
+        {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        .selector-for-some-widget 
+        {
+            box-sizing: content-box;
+        }
+        .wrapper
+        {
+            display: block;
+        }
+        .header{
+            width: auto;
+            height: 220px;
+        }
+        .banner
+        {
+            height: 220px;
+            background-image: url(./image/university-red.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .fix-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5rem;
+            margin: 0;
+            padding: 0;
+            z-index: 998;
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+        .header-scrolled {
+            height: 80px;
+            color: var(--text-color);
+            background-color: var(--header-scrolled-bg-color);
+            border-bottom: 1px solid var(--light-grey-color);
+        }
+        .header-scrolled > .nav > .nav-logo {
+            color: var(--text-color);
+        }
+        .header-scrolled > .nav > .ul-item > .nav-li {
+            color: var(--text-color);
+        }
+        .logo-page-location
+        {
+            display: block;
+            width: 1100px;
+            height: auto;
+            text-align: center;
+            padding: 110px 0 60px 0;
+            margin: 0 auto;
+        }
+        .logo-word
+        {
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 700;
+            color: white;
+        }
+        .page-location {
+            font-size: .8rem;
+            font-weight: 400;
+            color: var(--white-color);
+        }
+        .nav 
+        {
+            width: 1100px;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--header-border-color);
+        }
+        .nav-logo
+        {
+            display: inline-block;
+            font-size: 22px;
+            line-height: 90px;
+            font-weight: 700;
+            align-items: center;
+            color: var(--white-color);
+        }
+        .ul-item 
+        {
+            height: 70px;
+            display: flex;
+            justify-content: flex-end;
+            float: right;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .nav-li
+        {
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 56px;
+            align-items: center;
+            margin: 14px;
+            text-decoration: none;
+        }
+        .year-container 
+        {
+            display: block;
+            padding: 0.7rem 0 1.3rem 0;
+        }
+        .two-three-year-container
+        {
+            background-color: var(--light-grey-color);
+        }
+        .two-two-year-container 
+        {
+            background-color: var(--white-color);
+        }
+        .two-one-year-container
+        {
+            background-color: var(--light-grey-color);
+            
+        }
+        .two-zero-year-container
+        {
+            background-color: var(--white-color);
+        }
+        .one-nine-year-container
+        {
+            background-color: var(--light-grey-color);
+        }
+        .one-eight-year-container
+        {
+            background-color: var(--white-color);
+        }
+        .one-seven-year-container
+        {
+            background-color: var(--light-grey-color);
+        }
+        .one-six-year-container
+        {
+            background-color: var(--white-color);
+        }
+        .topic-container
+        {
+            background-color: var(--white-color);
+        }
+        .international-journal-container
+        {
+            background-color: var(--light-grey-color);
+        }
+        .container
+        {
+           width: 1100px;
+           min-height: 60px;
+           padding: 0 0 0 0;
+           margin: 0 auto; 
+        }
+        .lab-location {
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-align: center;
+            color: var(--main-color);
+        }
+        .contact-us {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        .year-aside 
+        {
+            display: inline-grid;
+        }
+        .two-three-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(12, 16px);
+        }
+        .two-two-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(27, 16px);
+        }
+        .two-one-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(12, 16px);
+        }
+        .two-zero-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(21, 16px);
+        }
+        .one-nine-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(38, 16px);
+        }
+        .one-eight-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(12, 16px);
+        }
+        .one-seven-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(21, 16px);
+        }
+        .one-six-year-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(17, 16px);
+        }
+        .topic-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(4, 16px);
+        }
+        .international-journal-aside
+        {
+            grid-template-columns: repeat(8, 15px);
+            grid-template-rows: repeat(73, 16px);
+        }
+        .year 
+        {
+            grid-row: 1 / 3;
+            grid-column: 3 / 7;
+            font-size: 26px;
+            font-family: 'Nanum Myeongjo', serif;
+            color: #858585;
+            text-align: center;
+            line-height: 36px;
+        }
+        .topic
+        {
+            grid-row: 2 / 4;
+            
+            font-weight: 700;
+        }
+        .two-three 
+        {
+            grid-column: 3 / 7;
+            grid-row: 1 / 3;
+            font-size: 28px;
+            font-family: 'Nanum Myeongjo', serif;
+            color: #858585;
+            text-align: center;
+        }
+        .two-three-line 
+        {
+            grid-column: 3 / 7;
+            grid-row: 5 / 7;
+            background-image: url(./image/pattern/dark-broun.png);
+            background-size: 60px 120px;
+        }
+        .year-line-color 
+        {
+            grid-column: 3 / 7;
+        }
+        .two-two 
+        {
+            grid-row: 1 / 3;
+        }
+        .two-two-line
+        {
+            grid-row: 5 / 78;
+            background-image: url(./image/pattern/broun.png);
+            background-size: 1024px;
+        }
+        .two-one
+        {
+            grid-row: 1 / 3;
+        }
+        .two-one-line
+        {
+            grid-row: 5 / 31;
+            background-size: 418px;
+            background-image: url(./image/pattern/beige-blue.png);
+        }
+        .international-journal-year
+        {
+            font-size: 16px;
+            color: var(--main-color);
+            
+        }
+        .main-content 
+        {
+            float: right;
+            width: 980px;
+            height: auto;
+            margin: 0 0 0 0;
+        }
+        .international 
+        {
+            display: block;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            color: var(--main-color);
+            font-size: 1.2rem;
+            line-height: 16px;
+            padding: 0 0 0 0;
+            margin: 8px 0 0 0;
+        }
+        .international-under
+        {
+            padding: 14px 0 0 0;
+        }
+        .text-content 
+        {
+            display: block;
+            font-size: 1.1rem;
+            line-height: 20px;
+            padding: 10px 0 0 0;
+            font-family: 'Arimo', sans-serif;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        .year-content {
+            margin: 0 0 0 0;
+            min-height: 40px;
+        }
+        .month-content 
+        {
+            padding: 6px 0;
+        }
+        .under-text
+        {
+            font-size: 1rem;
+            color: var(--grey-color);
+        }
+        .under-under-text 
+        {
+            color: var(--grey-color);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        .footer
+        {
+            margin: 20px 0 0 0;
+            text-align: center;
+        }
+        .journal-content
+        {
+            margin: 20px 0 0 0;
+        }
+        .journal-content-first
+        {
+            margin: 0 0 0 0;
+        }
+        .topic-content
+        {
+            padding: 1.1rem 0;
+        }
+        .active {
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="banner">
+                <div class="fix-header">
+                    <div class="nav">
+                        <div class="nav-logo">UBICOMPLAB</div>
+                        <div class="ul-item">
+                            <a class="home nav-li" href="./index.html" >HOME</a>
+                            <a class="members nav-li">MEMBERS</a>
+                            <a class="project nav-li">PROJECTS</a>
+                            <a class="publications nav-li">PUBLICANTS</a>
+                            <a class="Awards nav-li">AWARDS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-page-location">
+                    <div class="logo-word">publication</div>
+                    <span class="page-location">UBICOMP LAB @ SCH</span>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="topic-container year-container">
+                <div class="container">
+                    <div class="topic-aside year-aside">
+                        <div class="topic year">
+                            Topic
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="topic-content year-content">
+                            <a class="show-all-btn btn btn-primary btn-sm" id="show-all-btn-id" href="#" role="button" style="background-color: var(--main-color); border-color: var(--main-color);" onclick="">Show all</a>
+                            <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="background-color: #39f276; border-color: #39f276;">International Journal</a>
+                            <a class="international-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCC99; border-color: #FFCC99;">International Conference</a>
+                            <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCCFF; border-color: #FFCCFF;">Domestic Journal</a>
+                            <a class="domestic-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #E5CCFF; border-color: #E5CCFF;">Domestic Conference</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="two-three-year-container year-container">
+                <div class="container">
+                    <div class="two-three-year-aside year-aside">
+                        <div class="two-three year">
+                            2023
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="two-three-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Daehee Kim, Dong Min Kim, Taewon Song, Jiyoung Woo 
+                                    <div class="under-text">GAN-based Sensor Data Augmentation: Application for Counting Moving People and Detecting Directions using PIR Sensors</div> 
+                                    <div class="under-under-text">Engineering Applications of Artificial Intelligence, vol. 117, 105508, 2023</div>
+                                </div>
+                            </div>
+                            <div class="international-conference journal-content" id="international-conference-id">
+                                <div class="international">
+                                    International Conference
+                                </div>
+                                <div class="text-content">
+                                    Geonwoo Ji, Constantino Msigwa, Denis Bernard, Geon Lee, Jiyoung Woo, Jaeseok Yun
+                                    <div class="under-text">Health24: Health-related Data Collection from Wearable and Mobile Devices in Everyday Lives</div> 
+                                    <div class="under-under-text">an extended abstract of the Proceedings of the IEEE BigComp, (accepted)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="two-two-year-container year-container">
+                <div class="container"> 
+                    <div class="two-two-year-aside year-aside">
+                        <div class="two-two year">
+                            2022
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="two-two-content year-content">
+                            <div class="two-three-content year-content">
+                                <div class="international-journal journal-content journal-content-first">
+                                    <div class="international">
+                                        International Journal
+                                    </div>
+                                    <div class="text-content">
+                                        Denis Bernard, Constantino Msigwa, Jaeseok Yun
+                                        <div class="under-text">Towards IoT-based Medical Edge Devices: PPG-based Blood Pressure Estimation Application</div> 
+                                        <div class="under-under-text">IEEE Internet of Things Journal, (accepted)</div>
+                                    </div>
+                                    <div class="text-content">
+                                        Constantino Msigwa, Seungwoo Baek, Denis Bernard, Jaeseok Yun
+                                        <div class="under-text">Are You Wearing a Mask? Detecting If a Person Wears a Mask Using a Wristband</div> 
+                                        <div class="under-under-text">Sensors, vol. 22, no. 5, 1745, 2022</div>
+                                    </div>
+                                </div>
+                                <div class="domestic-journal journal-content">
+                                    <div class="international">
+                                        Domestic Journal
+                                    </div>
+                                    <div class="text-content">
+                                        Geonwoo Ji, Changwon Lee, Jaeseok Yun
+                                        <div class="under-text">Counting and Localizing Occupants using IR-UWB Radar and Machine Learning</div> 
+                                        <div class="under-under-text">Journal of the Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 27, no. 5, pp. 1-9, 2022</div>
+                                    </div>
+                                    <div class="text-content">
+                                        Seongchan Lee, Nakmyoung Sung, Seokjun Lee, Jaeseok Yun
+                                        <div class="under-text">Machine learning-based Multi-modal Sensing IoT Platform Resource Management</div> 
+                                        <div class="under-under-text">IEMEK Journal of Embedded Systems and Applications (대한임베디드공학회 논문지), vol. 17, no. 2, pp. 93-100, 2022</div>
+                                    </div>
+                                </div>
+                                <div class="domestic-conference journal-content">
+                                    <div class="international">
+                                        Domestic Conference
+                                    </div>
+                                    <div class="text-content">
+                                        Geonwoo Ji, Seongchan Lee, Constantino Msigwa, Denis Bernard, Jaeseok Yun
+                                        <div class="under-text">IoT based Smart Device Data Collection in Everyday Life</div> 
+                                        <div class="under-under-text">Proceedings of the Korean Society of Computer Information Summer Conference, 325-327, 2022</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="two-one-year-container year-container">
+                <div class="container">
+                    <div class="two-one-year-aside year-aside">
+                        <div class="two-one year">
+                            2021
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="two-one-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Jiyoung Woo
+                                    <div class="under-text">IoT-enabled Particulate Matter Monitoring and Forecasting Method based on Cluster Analysis</div>
+                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 8, no. 9, pp. 7380-7393, 2021</div> 
+                                </div>
+                            </div>
+                            <div class="domestic-journal journal-content">
+                                <div class="international">
+                                    Domestic Journal
+                                </div>
+                                <div class="text-content">
+                                    Eunsol An, Isu Jeong, Seungwoo Baek, Jaeseok Yun
+                                    <div class="under-text">Encouraging Good Habits for Young Children using IoT-enabled  Wearable Wristbands and Feedback Devices</div> 
+                                    <div class="under-under-text"> KIISE Transactions on Computing Practices (정보과학회 컴퓨팅의 실제 논문지) vol. 27, no. 11, pp. 531-542, 2021</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="two-zero-year-container year-container">
+                <div class="container">
+                    <div class="two-zero-year-aside year-aside">
+                        <div class="two-zero year">
+                            2020
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="two-zero-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jiyoung Woo, Jaeseok Yun
+                                    <div class="under-text">Content Noise Detection Model Using Deep Learning in Web Forums</div>
+                                    <div class="under-under-text">Sustainability, vol. 12, pp. 5074, 2020</div> 
+                                </div>
+                                <div class="text-content">
+                                    Huy T. Dinh, Jaeseok Yun, Dong Min Kim, Kyu-Haeng Lee, Daehee Kim
+                                    <div class="under-text">A Home Energy Management System With Renewable Energy and Energy Storage Utilizing Main Grid and Electricity Selling</div> 
+                                    <div class="under-under-text">IEEE Access, vol. 8, pp. 49436-49436, 2020</div>
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Jiyoung Woo
+                                    <div class="under-text">A Comparative Analysis of Deep Learning and Machine Learning on Detecting Movement Directions Using PIR Sensors</div> 
+                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 7, no. 4, pp. 2855-2868, 2020</div>
+                                </div>
+                            </div>
+                            <div class="domestic-journal journal-content">
+                                <div class="international">
+                                    Domestic Journal
+                                </div>
+                                <div class="text-content">
+                                    Isu Jeong, Seungwoo Baek, Eunsol An, Yujin Kim, Jiwoo Choi, Jaeseok Yun
+                                    <div class="under-text">IoT-Enabled Solutions for Tour Photography Services</div> 
+                                    <div class="under-under-text">Journal of the Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 25, no. 5, pp. 127-135, 2020</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one-nine-year-container year-container">
+                <div class="container">
+                    <div class="one-nine-year-aside year-aside">
+                        <div class="one-nine year">
+                            2019
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="one-nine-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jonggwan An, Franck L. Gall, Jaeho Kim, Jaeseok Yun, Jaeyoung Hwang, Martin Bauer, Mengxuan Zhao, JaeSeung Song
+                                    <div class="under-text">Toward Global IoT-Enabled Smart Cities Interworking Using Adaptive Semantic Adapter</div>
+                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 6, no. 3, pp. 5753-5753, 2019</div> 
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Il-Yeop Ahn, JaeSeung Song, Jaeho Kim
+                                    <div class="under-text">Implementation of Sensing and Actuation Capabilities for IoT Devices Using oneM2M Platforms</div> 
+                                    <div class="under-under-text">Sensors, vol. 19, no. 20, pp. 4567, 2019</div>
+                                </div>
+                            </div>
+                            <div class="international-conference journal-content" id="international-conference-id">
+                                <div class="international">
+                                    International Conference
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Nakmyoung Sung, Sung-Chan Choi, Jaeho Kim
+                                    <div class="under-text">Real-time PM Monitoring System based on oneM2M IoT Platform and LoRa Networks</div> 
+                                    <div class="under-under-text">Proceedings of the IEEE Sensors, pp. 1-4, 2019</div>
+                                </div>
+                            </div>
+                            <div class="domestic-journal journal-content">
+                                <div class="international">
+                                    Domestic Journal
+                                </div>
+                                <div class="text-content">
+                                    Isu Jeong, Jaeseok Yun Sung-Chan Choi, Jaeho Kim
+                                    <div class="under-text">Voice-based Device Control Using oneM2M IoT Platforms</div> 
+                                    <div class="under-under-text">Journal of the Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 24, no. 3, pp. 151-157, 2019</div>
+                                </div>
+                                <div class="text-content">
+                                    Jiyoung Woo, Jaeseok Yun
+                                    <div class="under-text">Detection of Moving Direction using PIR Sensors and Deep Learning Algorithm</div> 
+                                    <div class="under-under-text">Journal of the Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 24, no. 3, pp. 11-17, 2019</div>
+                                </div>
+                            </div>
+                            <div class="domestic-conference journal-content">
+                                <div class="international">
+                                    Domestic Conference
+                                </div>
+                                <div class="text-content">
+                                    Isu Jeong, Seungwoo Baek, Seongchan Lee, Jaeseok Yun
+                                    <div class="under-text">Voice-based Control System Using Standard-based IoT Platforms</div> 
+                                    <div class="under-under-text">Proceedings of the Korean Society of Computer Information Conference, 454-455, 2019</div>
+                                </div>
+                                <div class="text-content">
+                                    Eunsol An, Jaeseok Yun
+                                    <div class="under-text">Measuring Stress Using HRV sensor and Standard-based IoT Platforms</div> 
+                                    <div class="under-under-text">Proceedings of the Korean Society of Computer Information Conference, pp. 457-458, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one-eight-year-container year-container">
+                <div class="container">
+                    <div class="one-eight-year-aside year-aside">
+                        <div class="one-eight year">
+                            2018
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="one-eight-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeho Kim, Sung-Chan Choi, Jaeseok Yun, Jang-Won Lee 
+                                    <div class="under-text">Towards the oneM2M standards for building IoT ecosystem: Analysis, implementation and lessons</div> 
+                                    <div class="under-under-text"> Peer-to-Peer Networking and Applications, vol. 11, no. 1, pp. 139-139, 2018</div>
+                                </div>
+                            </div>
+                            <div class="domestic-journal journal-content">
+                                <div class="international">
+                                    Domestic Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun
+                                    <div class="under-text">Understanding the Internet of Things: Education and Experience</div> 
+                                    <div class="under-under-text">Journal of the Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 23, no. 12, pp. 137-137, 2018</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one-seven-year-container year-container">
+                <div class="container">
+                    <div class="one-seven-year-aside year-aside">
+                        <div class="one-seven year">
+                            2017
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="one-eight-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Sheik M. M. Fattah, Nakmyeong Sung, Il-Yeop Ahn, Minwoo Ryu, Jaeseok Yun
+                                    <div class="under-text">Building IoT Services for Aging in Place Using Standard-Based IoT Platforms and Heterogeneous IoT Products</div> 
+                                    <div class="under-under-text">Sensors, vol. 17, no. 10, pp. 2311, 2017</div>
+                                </div>
+                            </div>
+                            <div class="domestic-journal journal-content">
+                                <div class="international">
+                                    Domestic Journal
+                                </div>
+                                <div class="text-content">
+                                    Nakmyoung Sung, Jaeseok Yun
+                                    <div class="under-text">Self-adaptive IoT Software Platform for Interoperable Standard-based IoT Systems</div> 
+                                    <div class="under-under-text">IEMEK Journal of Embedded Systems and Applications (대한임베디드공학회 논문지), vol. 12, no. 6, pp. 369-369, 2017</div>
+                                </div>
+                                <div class="text-content">
+                                    Nakmyoung Sung, Jaeseok Yun
+                                    <div class="under-text">Medication Reminder System for Smart Aging Services Using IoT Platforms and Products</div> 
+                                    <div class="under-under-text">Journal of The Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 22, no. 9, pp. 107-107, 2017</div>
+                                </div>
+                                <div class="text-content">
+                                    Minwoo Ryu, Jaeseok Yun
+                                    <div class="under-text">Dynamic Service Composition and Development Using Heterogeneous IoT Systems</div> 
+                                    <div class="under-under-text"> Journal of The Korea Society of Computer and Information (한국컴퓨터정보학회 논문지), vol. 22, no. 9, pp. 91-91, 2017</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one-six-year-container year-container">
+                <div class="container">
+                    <div class="one-six-year-aside year-aside">
+                        <div class="one-six year">
+                            2016
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="one-six-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Emö Kovacs, Martin Bauer, Jaeho Kim, Jaeseok Yun
+                                    <div class="under-text">Franck L. Gall, Mengxuan Zhao, "Standards-Based Worldwide Semantic Interoperability for IoT</div> 
+                                    <div class="under-under-text">IEEE Communications Magazine, vol. 54, no. 12, pp. 40-40, 2016</div>
+                                </div>
+                                <div class="text-content">
+                                    Jaeho Kim, Sung-Chan Choi, Il-Yeop Ahn, Nakmyoung Sung, Jaeseok Yun
+                                    <div class="under-text">From WSN towards WoT: Open API Scheme Based on oneM2M Platforms</div> 
+                                    <div class="under-under-text">Sensors, vol. 16, no. 10, pp. 1645, 2016</div>
+                                </div>
+                            </div>
+                            <div class="international-conference journal-content" id="international-conference-id">
+                                <div class="international">
+                                    International Conference
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Ramnath C. Teja, Nan Chen, Nakmyoung Sung, Jaeho Kim
+                                    <div class="under-text">Interworking of oneM2M-based IoT systems and legacy systems for consumer products</div> 
+                                    <div class="under-under-text">Proceedings of the International Conference on Information and Communication Technology Convergence (ICTC '16), pp. 423-428, 2016 (Best Paper)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="international-journal-container year-container blind" id="international-journal-container-topic-id">
+                <div class="container">
+                    <div class="international-journal-aside year-aside">
+                        <div class="international-journal-year year">
+                            
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="two-three-content year-content">
+                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Daehee Kim, Dong Min Kim, Taewon Song, Jiyoung Woo 
+                                    <div class="under-text">GAN-based Sensor Data Augmentation: Application for Counting Moving People and Detecting Directions using PIR Sensors</div> 
+                                    <div class="under-under-text">Engineering Applications of Artificial Intelligence, vol. 117, 105508, 2023</div>
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" id="international-journal-id">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Denis Bernard, Constantino Msigwa, Jaeseok Yun
+                                    <div class="under-text">Towards IoT-based Medical Edge Devices: PPG-based Blood Pressure Estimation Application</div> 
+                                    <div class="under-under-text">IEEE Internet of Things Journal, (accepted)</div>
+                                </div>
+                                <div class="text-content">
+                                    Constantino Msigwa, Seungwoo Baek, Denis Bernard, Jaeseok Yun
+                                    <div class="under-text">Are You Wearing a Mask? Detecting If a Person Wears a Mask Using a Wristband</div> 
+                                    <div class="under-under-text">Sensors, vol. 22, no. 5, 1745, 2022</div>
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Jiyoung Woo
+                                    <div class="under-text">IoT-enabled Particulate Matter Monitoring and Forecasting Method based on Cluster Analysis</div>
+                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 8, no. 9, pp. 7380-7393, 2021</div> 
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jiyoung Woo, Jaeseok Yun
+                                    <div class="under-text">Content Noise Detection Model Using Deep Learning in Web Forums</div>
+                                    <div class="under-under-text">Sustainability, vol. 12, pp. 5074, 2020</div> 
+                                </div>
+                                <div class="text-content">
+                                    Huy T. Dinh, Jaeseok Yun, Dong Min Kim, Kyu-Haeng Lee, Daehee Kim
+                                    <div class="under-text">A Home Energy Management System With Renewable Energy and Energy Storage Utilizing Main Grid and Electricity Selling</div> 
+                                    <div class="under-under-text">IEEE Access, vol. 8, pp. 49436-49436, 2020</div>
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Jiyoung Woo
+                                    <div class="under-text">A Comparative Analysis of Deep Learning and Machine Learning on Detecting Movement Directions Using PIR Sensors</div> 
+                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 7, no. 4, pp. 2855-2868, 2020</div>
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jonggwan An, Franck L. Gall, Jaeho Kim, Jaeseok Yun, Jaeyoung Hwang, Martin Bauer, Mengxuan Zhao, JaeSeung Song
+                                    <div class="under-text">Toward Global IoT-Enabled Smart Cities Interworking Using Adaptive Semantic Adapter</div>
+                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 6, no. 3, pp. 5753-5753, 2019</div> 
+                                </div>
+                                <div class="text-content">
+                                    Jaeseok Yun, Il-Yeop Ahn, JaeSeung Song, Jaeho Kim
+                                    <div class="under-text">Implementation of Sensing and Actuation Capabilities for IoT Devices Using oneM2M Platforms</div> 
+                                    <div class="under-under-text">Sensors, vol. 19, no. 20, pp. 4567, 2019</div>
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Jaeho Kim, Sung-Chan Choi, Jaeseok Yun, Jang-Won Lee 
+                                    <div class="under-text">Towards the oneM2M standards for building IoT ecosystem: Analysis, implementation and lessons</div> 
+                                    <div class="under-under-text"> Peer-to-Peer Networking and Applications, vol. 11, no. 1, pp. 139-139, 2018</div>
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Sheik M. M. Fattah, Nakmyeong Sung, Il-Yeop Ahn, Minwoo Ryu, Jaeseok Yun
+                                    <div class="under-text">Building IoT Services for Aging in Place Using Standard-Based IoT Platforms and Heterogeneous IoT Products</div> 
+                                    <div class="under-under-text">Sensors, vol. 17, no. 10, pp. 2311, 2017</div>
+                                </div>
+                            </div>
+                            <div class="international-journal journal-content" name="international-journal-name">
+                                <div class="international">
+                                    International Journal
+                                </div>
+                                <div class="text-content">
+                                    Emö Kovacs, Martin Bauer, Jaeho Kim, Jaeseok Yun
+                                    <div class="under-text">Franck L. Gall, Mengxuan Zhao, "Standards-Based Worldwide Semantic Interoperability for IoT</div> 
+                                    <div class="under-under-text">IEEE Communications Magazine, vol. 54, no. 12, pp. 40-40, 2016</div>
+                                </div>
+                                <div class="text-content">
+                                    Jaeho Kim, Sung-Chan Choi, Il-Yeop Ahn, Nakmyoung Sung, Jaeseok Yun
+                                    <div class="under-text">From WSN towards WoT: Open API Scheme Based on oneM2M Platforms</div> 
+                                    <div class="under-under-text">Sensors, vol. 16, no. 10, pp. 1645, 2016</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">ubicompteam@gmail.com</div>
+    </div>
+    <script>
+        let $fixHeader = document.querySelector(".fix-header");
+        let $headerScrolled = document.querySelector(".header-scrolled");
+        let $internationalJournal = document.querySelectorAll(".international-journal");
+        let $internationalConference = document.querySelectorAll(".international-conference");
+        let $domesticJournal = document.querySelectorAll(".domestic-journal");
+        let $domesticConference = document.querySelectorAll(".domestic-conference");
+        let $showAllBtn = document.querySelector(".show-all-btn");
+        let $internationalJournalBtn = document.querySelector(".international-journal-btn");
+        let $internationalConferenceBtn = document.querySelector(".international-conference-btn");
+        let $domesticJournalBtn = document.querySelector(".domestic-journal-btn");
+        let $domesticConferenceBtn= document.querySelector(".domestic-conference-btn");
+        let $showAllBtnId = document.getElementById('show-all-btn-id');
+        let $internationalJournalName = document.getElementsByName('international-journal-name');
+        let $internationalJournalTopicId = document.getElementById('international-journal-topic-id');
+
+        window.addEventListener('scroll', () => {
+            console.log(window.scrollX, window.scrollY);
+            if(window.scrollY >= 128) {
+                $fixHeader.classList.add('header-scrolled');
+            }
+            else if(window.scrollY < 128) {
+                $fixHeader.classList.remove('header-scrolled');
+            }
+        });
+
+        function internationalJournal_button() {
+            console.log('click');
+            if($internationalJournalTopicId.classList.contains('blind')) {
+                console.log('not blind');
+                $internationalJournalTopicId.classList.remove('blind');
+            } else {
+                console.log('have blind');
+                $internationalJournalTopicId.classList.add('blind'); 
+            }
+        }
+        $internationalJournalBtn.addEventListener('click', () => {
+            console.log('click');
+            if($internationalJournalTopicId.classList.contains('blind')) {
+                console.log('not blind');
+                $internationalJournalTopicId.classList.remove('blind');
+            } else {
+                console.log('have blind');
+                $internationalJournalTopicId.classList.add('blind'); 
+            }
+        });
+        
+        
+
+    </script>
+</body>
+</html>
