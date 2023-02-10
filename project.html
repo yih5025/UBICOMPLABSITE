@@ -210,52 +210,61 @@
         }
         .year-aside 
         {
-            display: inline-grid;
+            display: inline-block;
         }
         .two-three-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(12, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 200px;
         }
         .two-two-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(27, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 456px;
         }
         .two-one-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(12, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 206px;
         }
         .two-zero-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(21, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 340px;
         }
         .one-nine-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(38, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 636px;
         }
         .one-eight-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(12, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 200px;
         }
         .one-seven-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(21, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 340px;
         }
         .one-six-year-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(17, 16px);
+            display: inline-block;
+            width: 120px;
+            height: 260px;
         }
         .topic-aside
         {
-            grid-template-columns: repeat(8, 15px);
-            grid-template-rows: repeat(4, 16px);
+            display: inline-block;
+            width: 120px;   
+            height: 60px;
         }
         .international-journal-aside
         {
@@ -274,10 +283,9 @@
         }
         .topic
         {
-            grid-row: 2 / 4;
-            font-weight: 900;
             color: var(--main-color);
             font-size: 1.6rem;
+            line-height: 60px;
         }
         .two-three 
         {
@@ -334,7 +342,7 @@
         }
         .international 
         {
-            display: block;
+            display: inline-block;
             font-weight: 700;
             font-family: 'Arimo', sans-serif;
             color: var(--main-color);
@@ -383,7 +391,7 @@
         }
         .journal-content
         {
-            margin: 20px 0 0 0;
+            margin: 12px 0 0 0;
         }
         .journal-content-first
         {
@@ -393,7 +401,11 @@
         {
             padding: 1.1rem 0;
         }
-        .active {
+        .topic-icon-ij
+        {
+            display: inline-block;
+            width: 30px;
+            height: 20px;
 
         }
     </style>
@@ -407,9 +419,9 @@
                         <div class="nav-logo">UBICOMPLAB</div>
                         <div class="ul-item">
                             <a class="home nav-li" href="./index.html" >HOME</a>
-                            <a class="members nav-li">MEMBERS</a>
+                            <a class="members nav-li" href="./members.html">MEMBERS</a>
                             <a class="project nav-li">PROJECTS</a>
-                            <a class="publications nav-li">PUBLICANTS</a>
+                            <a class="publications nav-li" href="./project.html">PUBLICANTS</a>
                             <a class="Awards nav-li">AWARDS</a>
                         </div>
                     </div>
@@ -451,7 +463,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Jaeseok Yun, Daehee Kim, Dong Min Kim, Taewon Song, Jiyoung Woo 
                                     <div class="under-text">GAN-based Sensor Data Augmentation: Application for Counting Moving People and Detecting Directions using PIR Sensors</div> 
@@ -461,7 +473,7 @@
                             <div class="international-conference journal-content" id="international-conference-id">
                                 <div class="international">
                                     International Conference
-                                </div>
+                                </div><a class="international-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCC99; border-color: #FFCC99; width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px;">IC</a>
                                 <div class="text-content">
                                     Geonwoo Ji, Constantino Msigwa, Denis Bernard, Geon Lee, Jiyoung Woo, Jaeseok Yun
                                     <div class="under-text">Health24: Health-related Data Collection from Wearable and Mobile Devices in Everyday Lives</div> 
@@ -485,7 +497,7 @@
                                 <div class="international-journal journal-content journal-content-first">
                                     <div class="international">
                                         International Journal
-                                    </div>
+                                    </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                     <div class="text-content">
                                         Denis Bernard, Constantino Msigwa, Jaeseok Yun
                                         <div class="under-text">Towards IoT-based Medical Edge Devices: PPG-based Blood Pressure Estimation Application</div> 
@@ -500,7 +512,7 @@
                                 <div class="domestic-journal journal-content">
                                     <div class="international">
                                         Domestic Journal
-                                    </div>
+                                    </div><a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #FFCCFF; border-color: #FFCCFF;">DJ</a>
                                     <div class="text-content">
                                         Geonwoo Ji, Changwon Lee, Jaeseok Yun
                                         <div class="under-text">Counting and Localizing Occupants using IR-UWB Radar and Machine Learning</div> 
@@ -515,7 +527,7 @@
                                 <div class="domestic-conference journal-content">
                                     <div class="international">
                                         Domestic Conference
-                                    </div>
+                                    </div><a class="domestic-conference-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #E5CCFF; border-color: #E5CCFF;">DC</a>
                                     <div class="text-content">
                                         Geonwoo Ji, Seongchan Lee, Constantino Msigwa, Denis Bernard, Jaeseok Yun
                                         <div class="under-text">IoT based Smart Device Data Collection in Everyday Life</div> 
@@ -539,7 +551,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Jaeseok Yun, Jiyoung Woo
                                     <div class="under-text">IoT-enabled Particulate Matter Monitoring and Forecasting Method based on Cluster Analysis</div>
@@ -549,7 +561,7 @@
                             <div class="domestic-journal journal-content">
                                 <div class="international">
                                     Domestic Journal
-                                </div>
+                                </div><a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #FFCCFF; border-color: #FFCCFF;">DJ</a>
                                 <div class="text-content">
                                     Eunsol An, Isu Jeong, Seungwoo Baek, Jaeseok Yun
                                     <div class="under-text">Encouraging Good Habits for Young Children using IoT-enabled  Wearable Wristbands and Feedback Devices</div> 
@@ -572,7 +584,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Jiyoung Woo, Jaeseok Yun
                                     <div class="under-text">Content Noise Detection Model Using Deep Learning in Web Forums</div>
@@ -592,7 +604,7 @@
                             <div class="domestic-journal journal-content">
                                 <div class="international">
                                     Domestic Journal
-                                </div>
+                                </div><a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #FFCCFF; border-color: #FFCCFF;">DJ</a>
                                 <div class="text-content">
                                     Isu Jeong, Seungwoo Baek, Eunsol An, Yujin Kim, Jiwoo Choi, Jaeseok Yun
                                     <div class="under-text">IoT-Enabled Solutions for Tour Photography Services</div> 
@@ -615,7 +627,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Jonggwan An, Franck L. Gall, Jaeho Kim, Jaeseok Yun, Jaeyoung Hwang, Martin Bauer, Mengxuan Zhao, JaeSeung Song
                                     <div class="under-text">Toward Global IoT-Enabled Smart Cities Interworking Using Adaptive Semantic Adapter</div>
@@ -630,7 +642,7 @@
                             <div class="international-conference journal-content" id="international-conference-id">
                                 <div class="international">
                                     International Conference
-                                </div>
+                                </div><a class="international-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCC99; border-color: #FFCC99; width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px;">IC</a>
                                 <div class="text-content">
                                     Jaeseok Yun, Nakmyoung Sung, Sung-Chan Choi, Jaeho Kim
                                     <div class="under-text">Real-time PM Monitoring System based on oneM2M IoT Platform and LoRa Networks</div> 
@@ -640,7 +652,7 @@
                             <div class="domestic-journal journal-content">
                                 <div class="international">
                                     Domestic Journal
-                                </div>
+                                </div><a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #FFCCFF; border-color: #FFCCFF;">DJ</a>
                                 <div class="text-content">
                                     Isu Jeong, Jaeseok Yun Sung-Chan Choi, Jaeho Kim
                                     <div class="under-text">Voice-based Device Control Using oneM2M IoT Platforms</div> 
@@ -655,7 +667,7 @@
                             <div class="domestic-conference journal-content">
                                 <div class="international">
                                     Domestic Conference
-                                </div>
+                                </div><a class="domestic-conference-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #E5CCFF; border-color: #E5CCFF;">DC</a>
                                 <div class="text-content">
                                     Isu Jeong, Seungwoo Baek, Seongchan Lee, Jaeseok Yun
                                     <div class="under-text">Voice-based Control System Using Standard-based IoT Platforms</div> 
@@ -683,7 +695,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Jaeho Kim, Sung-Chan Choi, Jaeseok Yun, Jang-Won Lee 
                                     <div class="under-text">Towards the oneM2M standards for building IoT ecosystem: Analysis, implementation and lessons</div> 
@@ -693,7 +705,7 @@
                             <div class="domestic-journal journal-content">
                                 <div class="international">
                                     Domestic Journal
-                                </div>
+                                </div><a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #FFCCFF; border-color: #FFCCFF;">DJ</a>
                                 <div class="text-content">
                                     Jaeseok Yun
                                     <div class="under-text">Understanding the Internet of Things: Education and Experience</div> 
@@ -716,7 +728,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Sheik M. M. Fattah, Nakmyeong Sung, Il-Yeop Ahn, Minwoo Ryu, Jaeseok Yun
                                     <div class="under-text">Building IoT Services for Aging in Place Using Standard-Based IoT Platforms and Heterogeneous IoT Products</div> 
@@ -726,7 +738,7 @@
                             <div class="domestic-journal journal-content">
                                 <div class="international">
                                     Domestic Journal
-                                </div>
+                                </div><a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 30px; height: 20px; line-height: 17px; margin: 0 0 4px 6px; padding: 0px; background-color: #FFCCFF; border-color: #FFCCFF;">DJ</a>
                                 <div class="text-content">
                                     Nakmyoung Sung, Jaeseok Yun
                                     <div class="under-text">Self-adaptive IoT Software Platform for Interoperable Standard-based IoT Systems</div> 
@@ -759,7 +771,7 @@
                             <div class="international-journal journal-content journal-content-first" name="international-journal-name">
                                 <div class="international">
                                     International Journal
-                                </div>
+                                </div><a class="btn btn-primary btn-sm " href="#" role="button" style="width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px; background-color: #39f276; border-color: #39f276;">IJ</a>
                                 <div class="text-content">
                                     Emö Kovacs, Martin Bauer, Jaeho Kim, Jaeseok Yun
                                     <div class="under-text">Franck L. Gall, Mengxuan Zhao, "Standards-Based Worldwide Semantic Interoperability for IoT</div> 
@@ -774,129 +786,11 @@
                             <div class="international-conference journal-content" id="international-conference-id">
                                 <div class="international">
                                     International Conference
-                                </div>
+                                </div><a class="international-conference-btn btn btn-primary btn-sm" href="#" role="button" style="background-color: #FFCC99; border-color: #FFCC99; width: 30px; height: 20px; line-height: 10px; margin: 0 0 4px 6px;">IC</a>
                                 <div class="text-content">
                                     Jaeseok Yun, Ramnath C. Teja, Nan Chen, Nakmyoung Sung, Jaeho Kim
                                     <div class="under-text">Interworking of oneM2M-based IoT systems and legacy systems for consumer products</div> 
                                     <div class="under-under-text">Proceedings of the International Conference on Information and Communication Technology Convergence (ICTC '16), pp. 423-428, 2016 (Best Paper)</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="international-journal-container year-container" id="international-journal-container-topic-id" onclick="internationalJournalButton();">
-                <div class="container">
-                    <div class="international-journal-aside year-aside">
-                        <div class="international-journal-year year">
-                            
-                        </div>
-                    </div>
-                    <div class="main-content">
-                        <div class="two-three-content year-content">
-                            <div class="international-journal journal-content journal-content-first" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Jaeseok Yun, Daehee Kim, Dong Min Kim, Taewon Song, Jiyoung Woo 
-                                    <div class="under-text">GAN-based Sensor Data Augmentation: Application for Counting Moving People and Detecting Directions using PIR Sensors</div> 
-                                    <div class="under-under-text">Engineering Applications of Artificial Intelligence, vol. 117, 105508, 2023</div>
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" id="international-journal-id">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Denis Bernard, Constantino Msigwa, Jaeseok Yun
-                                    <div class="under-text">Towards IoT-based Medical Edge Devices: PPG-based Blood Pressure Estimation Application</div> 
-                                    <div class="under-under-text">IEEE Internet of Things Journal, (accepted)</div>
-                                </div>
-                                <div class="text-content">
-                                    Constantino Msigwa, Seungwoo Baek, Denis Bernard, Jaeseok Yun
-                                    <div class="under-text">Are You Wearing a Mask? Detecting If a Person Wears a Mask Using a Wristband</div> 
-                                    <div class="under-under-text">Sensors, vol. 22, no. 5, 1745, 2022</div>
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Jaeseok Yun, Jiyoung Woo
-                                    <div class="under-text">IoT-enabled Particulate Matter Monitoring and Forecasting Method based on Cluster Analysis</div>
-                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 8, no. 9, pp. 7380-7393, 2021</div> 
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Jiyoung Woo, Jaeseok Yun
-                                    <div class="under-text">Content Noise Detection Model Using Deep Learning in Web Forums</div>
-                                    <div class="under-under-text">Sustainability, vol. 12, pp. 5074, 2020</div> 
-                                </div>
-                                <div class="text-content">
-                                    Huy T. Dinh, Jaeseok Yun, Dong Min Kim, Kyu-Haeng Lee, Daehee Kim
-                                    <div class="under-text">A Home Energy Management System With Renewable Energy and Energy Storage Utilizing Main Grid and Electricity Selling</div> 
-                                    <div class="under-under-text">IEEE Access, vol. 8, pp. 49436-49436, 2020</div>
-                                </div>
-                                <div class="text-content">
-                                    Jaeseok Yun, Jiyoung Woo
-                                    <div class="under-text">A Comparative Analysis of Deep Learning and Machine Learning on Detecting Movement Directions Using PIR Sensors</div> 
-                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 7, no. 4, pp. 2855-2868, 2020</div>
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Jonggwan An, Franck L. Gall, Jaeho Kim, Jaeseok Yun, Jaeyoung Hwang, Martin Bauer, Mengxuan Zhao, JaeSeung Song
-                                    <div class="under-text">Toward Global IoT-Enabled Smart Cities Interworking Using Adaptive Semantic Adapter</div>
-                                    <div class="under-under-text">IEEE Internet of Things Journal, vol. 6, no. 3, pp. 5753-5753, 2019</div> 
-                                </div>
-                                <div class="text-content">
-                                    Jaeseok Yun, Il-Yeop Ahn, JaeSeung Song, Jaeho Kim
-                                    <div class="under-text">Implementation of Sensing and Actuation Capabilities for IoT Devices Using oneM2M Platforms</div> 
-                                    <div class="under-under-text">Sensors, vol. 19, no. 20, pp. 4567, 2019</div>
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Jaeho Kim, Sung-Chan Choi, Jaeseok Yun, Jang-Won Lee 
-                                    <div class="under-text">Towards the oneM2M standards for building IoT ecosystem: Analysis, implementation and lessons</div> 
-                                    <div class="under-under-text"> Peer-to-Peer Networking and Applications, vol. 11, no. 1, pp. 139-139, 2018</div>
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Sheik M. M. Fattah, Nakmyeong Sung, Il-Yeop Ahn, Minwoo Ryu, Jaeseok Yun
-                                    <div class="under-text">Building IoT Services for Aging in Place Using Standard-Based IoT Platforms and Heterogeneous IoT Products</div> 
-                                    <div class="under-under-text">Sensors, vol. 17, no. 10, pp. 2311, 2017</div>
-                                </div>
-                            </div>
-                            <div class="international-journal journal-content" name="international-journal-name">
-                                <div class="international">
-                                    International Journal
-                                </div>
-                                <div class="text-content">
-                                    Emö Kovacs, Martin Bauer, Jaeho Kim, Jaeseok Yun
-                                    <div class="under-text">Franck L. Gall, Mengxuan Zhao, "Standards-Based Worldwide Semantic Interoperability for IoT</div> 
-                                    <div class="under-under-text">IEEE Communications Magazine, vol. 54, no. 12, pp. 40-40, 2016</div>
-                                </div>
-                                <div class="text-content">
-                                    Jaeho Kim, Sung-Chan Choi, Il-Yeop Ahn, Nakmyoung Sung, Jaeseok Yun
-                                    <div class="under-text">From WSN towards WoT: Open API Scheme Based on oneM2M Platforms</div> 
-                                    <div class="under-under-text">Sensors, vol. 16, no. 10, pp. 1645, 2016</div>
                                 </div>
                             </div>
                         </div>

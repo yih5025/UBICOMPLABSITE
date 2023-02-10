@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBICOMPLAB</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+        body {
+            margin: 0px;
+        }
+        * 
+        {
+            box-sizing: border-box;
+            --main-color: #21358b;
+            --text-color: #222;
+            --link-color: #375eff;
+            --white-color: #fff;
+            --light-grey-color: #f8f8f8;
+            --grey-color: #444;
+            --header-text-color: hsla(0,0%,100%,0.7);
+            --header-text-highlight-color: #fff;
+            --header-border-color: hsla(0,0%,100%,0.15);
+            --header-scrolled-bg-color: hsla(0,0%,100%,0.9);
+            --max-width: 75rem;
+            --mobile-max-width: 48rem;
+            font-family: 'Arimo', sans-serif;
+        }
+        .blind 
+        {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        .selector-for-some-widget 
+        {
+            box-sizing: content-box;
+        }
+        .wrapper
+        {
+            display: block;
+        }
+        .header{
+            width: auto;
+            height: 220px;
+        }
+        .banner
+        {
+            height: 220px;
+            background-image: url(./image/orange-buliding.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 -500px;
+        }
+        .fix-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5rem;
+            margin: 0;
+            padding: 0;
+            z-index: 998;
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+        .header-scrolled {
+            height: 80px;
+            color: var(--text-color);
+            background-color: var(--header-scrolled-bg-color);
+            border-bottom: 1px solid var(--light-grey-color);
+        }
+        .header-scrolled > .nav > .nav-logo {
+            color: var(--text-color);
+        }
+        .header-scrolled > .nav > .ul-item > .nav-li {
+            color: var(--text-color);
+        }
+        .logo-page-location
+        {
+            display: block;
+            width: 1100px;
+            height: auto;
+            text-align: center;
+            padding: 110px 0 60px 0;
+            margin: 0 auto;
+        }
+        .logo-word
+        {
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 700;
+            color: white;
+        }
+        .page-location {
+            font-size: .8rem;
+            font-weight: 400;
+            color: var(--white-color);
+        }
+        .nav 
+        {
+            width: 1100px;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--header-border-color);
+        }
+        .nav-logo
+        {
+            display: inline-block;
+            font-size: 22px;
+            line-height: 90px;
+            font-weight: 700;
+            align-items: center;
+            color: var(--white-color);
+        }
+        .ul-item 
+        {
+            height: 70px;
+            display: flex;
+            justify-content: flex-end;
+            float: right;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        .nav-li
+        {
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 56px;
+            align-items: center;
+            margin: 14px;
+            text-decoration: none;
+        }
+        .News 
+        {
+            display: block;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+            color: var(--main-color);
+            font-size: 1.3rem;
+            line-height: 16px;
+            padding: 0 0 0 0;
+            margin: 0 0 0 0;
+        }
+        .main-content 
+        {
+            overflow: hidden;
+            width: 1100px;
+            height: auto;
+            margin: 0 auto;
+        }
+        .divide-container
+        {
+           padding: 0.7rem 0 0.7rem 0;
+           overflow: hidden;
+        }
+        .graduate-container
+        {
+            background-color: var(--white-color);
+        }
+        .ungraduate-container
+        {
+            background-color: var(--light-grey-color);
+        }
+        .undergraduate-activities
+        {
+            background-color: var(--white-color);
+        }
+        .undergraduate-activities-2
+        {
+            background-color: var(--light-grey-color);
+        }
+        .undergraduate-activities-3
+        {
+            background-color: var(--white-color);
+        }
+        .student-divide
+        {
+            display: block;
+            width: 1100px;
+            height: auto;
+            padding: 1rem 0 1rem 0;
+        }
+        .student-topic
+        {
+            display: block;
+            font-weight: 100;
+            font-family: 'Merriweather', serif;
+            color: var(--main-color);
+            font-size: 1.4rem;
+            line-height: 16px;
+            padding: 0 0 0 0;
+            margin: 8px 0 16px 0;
+            
+        }
+        .student-information
+        {
+            width: 542px;
+            height: 150px;
+            float: left;
+            margin: 20px 3px;
+            overflow: hidden;
+        }
+        .student-picture
+        {
+            display: inline-block;
+            width: 144px;
+            height: 144px;
+            background-repeat: no-repeat;
+            border-radius: 16px;
+            background-size: cover;
+        }
+        .geonwoo
+        {
+            background-image: url(./image/students/geonwoo.jpeg);
+        }
+        .minji
+        {
+            background-image: url(./image/students/minji.jpeg);
+        }
+        .constantino
+        {
+            background-image: url(./image/students/constantino.jpeg);
+        }
+        .godwin
+        {
+            background-image: url(./image/students/godwin.jpeg);
+        }
+        .denis
+        {
+            background-image: url(./image/students/dannis.jpeg);
+        }
+        .ester
+        {
+            background-image: url(./image/students/ester.jpeg);
+        }
+        .seongchan
+        {
+            background-image: url(./image/students/seongchan.jpeg);
+        }
+        .changwon
+        {
+            background-image: url(./image/students/changwon.jpeg);
+        }
+        .chaewon
+        {
+            background-image: url(./image/students/chaewon.jpeg);
+        }
+        .hyeonjung
+        {
+            background-image: url(./image/students/hyeonjung.png);
+        }
+        .chanyeong
+        {
+            background-image: url(./image/students/chanyeong.png);
+        }
+        .ilhan
+        {
+            background-image: url(./image/students/ilhan.JPG);
+        }
+        .sion
+        {
+            background-image: url(./image/students/sion.png);
+        }
+        .kyeongho
+        {
+            background-image: url(./image/students/kyeongho.png);
+        }
+        .baek
+        {
+            background-image: url(./image/students/baek.jpeg);
+        }
+        .isu
+        {
+            background-image: url(./image/students/isu.jpeg);
+        }
+        .eunsol
+        {
+            background-image: url(./image/students/eunsol.jpeg);
+        }
+        .yujin
+        {
+            background-image: url(./image/students/yujin.jpeg);
+        }
+        .text-content 
+        {
+            display: block;
+            font-size: 1.2rem;
+            line-height: 20px;
+            padding: 10px 0 0 0;
+            margin: 0 0 0 6px;
+            font-family: 'Arimo', sans-serif;
+            font-weight: 100;
+            color: var(--main-color);
+        }
+        .text-content-2
+        {
+            display: block;
+            font-size: 1.2rem;
+            line-height: 20px;
+            padding: 10px 0 0 0;
+            margin: 0 0 0 0;
+            font-family: 'Arimo', sans-serif;
+            font-weight: 100;
+            color: var(--main-color);
+        }
+        .under-text
+        {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            line-height: 20px;
+            font-weight: 100;
+            padding: 4px 0 0 0;
+        }
+        .under-under-text 
+        {
+            color: var(--grey-color);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        .student-content
+        {
+            display: inline-block;
+            width: 392px;
+            height: auto;
+            float: right;
+        }
+        .join-project
+        {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            line-height: 20px;
+            font-weight: 100;
+            color: var(--main-color);
+            font-weight: 100;
+        }
+        .topic-small
+        {
+            font-size: 1.2rem;
+        }
+        .under-text-big
+        {
+            font-size: 1.1rem;
+            
+        }
+        .footer
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="banner">
+                <div class="fix-header">
+                    <div class="nav">
+                        <div class="nav-logo">UBICOMPLAB</div>
+                        <div class="ul-item">
+                            <a class="home nav-li" href="./index.html" >HOME</a>
+                            <a class="members nav-li" href="./members.html">MEMBERS</a>
+                            <a class="project nav-li">PROJECTS</a>
+                            <a class="publications nav-li" href="./project.html">PUBLICANTS</a>
+                            <a class="Awards nav-li">AWARDS</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-page-location">
+                    <div class="logo-word">members</div>
+                    <span class="page-location">UBICOMP LAB @ SCH</span>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="divide-container graduate-container">
+                <div class="main-content">
+                    <div class="graduate student-divide">
+                        <div class="student-topic">
+                            Graduate students
+                        </div> 
+                        <div class="student-information">
+                            <div class="geonwoo student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Geonwoo Ji
+                                    <div class="under-text">
+                                        spacegray.ji AT gmail.com
+                                        <br>
+                                        2017-current
+                                        <br>
+                                        Joint bachelor-master course 
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/pdf.pdf" target="_blank" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="minji student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Minji An
+                                    <div class="under-text">
+                                        minji010914 AT gmail.com
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        Joint bachelor-master course
+                                    </div>
+                                    <div class="join-project">
+                                        
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="constantino student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Constantino Msigwa
+                                    <div class="under-text">
+                                        costa2021.sch AT gmail.com
+                                        <br>
+                                        2021-current
+                                        <br>
+                                        PhD course  MS in Soonchunhyang Univ, 2023
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="godwin student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Godwin Msigwa
+                                    <div class="under-text">
+                                        godwin2022.sch AT gmail.com
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        Master course
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="denis student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Denis Bernard
+                                    <div class="under-text">
+                                        denis2021.sch AT gmail.com
+                                        <br>
+                                        2021-current
+                                        <br>
+                                        PhD course  MS in Soonchunhyang Univ, 2023
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="ester student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Ester Ntambala
+                                    <div class="under-text">
+                                        ester2022.sch AT gmail.com
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        Master course
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divide-container ungraduate-container">
+                <div class="main-content">
+                    <div class="graduate student-divide">
+                        <div class="student-topic">
+                            Undergraduate students
+                        </div> 
+                        <div class="student-information">
+                            <div class="seongchan student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Seongchan Lee
+                                    <div class="under-text">
+                                        이성찬
+                                        <br>
+                                        seongchanno1 AT gmail.com
+                                        <br>
+                                        2017-current
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="changwon student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Changwon Lee
+                                    <div class="under-text">
+                                        이창원
+                                        <br>
+                                        lcw0115a AT gmail.com
+                                        <br>
+                                        2021-current
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="chaewon student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Chaewon Song
+                                    <div class="under-text">
+                                        송채원
+                                        <br>
+                                        song8994 AT gmail.com
+                                        <br>
+                                        2021-current
+                                    </div>
+                                    <div class="join-project">
+                                        
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divide-container undergraduate-activities">
+                <div class="main-content">
+                    <div class="graduate student-divide">
+                        <div class="student-topic">
+                            Undergraduate activities (internships)
+                        </div> 
+                        <div class="student-information">
+                            <div class="hyeonjung student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Hyeonjung Noh
+                                    <div class="under-text">
+                                        노현정
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="chanyeong student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    ChanYeong Park
+                                    <div class="under-text">
+                                        박찬영
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="ilhan student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Ilhan Yu
+                                    <div class="under-text">
+                                        유일한
+                                        <br>
+                                        2021-current
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="kyeongho student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Kyeongho Jang
+                                    <div class="under-text">
+                                        장경호
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="join-project">
+                                        <a class="international-journal-btn btn btn-primary btn-sm " href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #39f276; border-color: #39f276;">KNIH</a>
+                                        
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="sion student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Sion Jeon
+                                    <div class="under-text">
+                                        전시온
+                                        <br>
+                                        2022-current
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="join-project">
+                                        
+                                        <a class="domestic-journal-btn btn btn-primary btn-sm" href="#" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: #FFCCFF; border-color: #FFCCFF;">AIoT</a>
+                                    </div>
+                                    <a class="btn btn-primary btn-sm" id="show-all-btn-id" href="./pdf/test.pdf" role="button" style="width: 34px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 0; background-color: var(--main-color); border-color: var(--main-color);">PDF</a>
+                                    <a class="btn btn-primary btn-sm" href="https://github.com/yih5025/UBICOMPLABSITE" role="button" target="_blank" role="button" style="width: 72px; height: 21px; font-size: 12px; padding: 1px; margin: 3px 3px 0 -3px; background-color: #FFCC99; border-color: #FFCC99;">Homepage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divide-container undergraduate-activities-2">
+                <div class="main-content">
+                    <div class="graduate student-divide">
+                        <div class="topic-small student-topic">
+                            Undergraduate activities (internships)
+                        </div>
+                        <div class="text-content-2">
+                            <span class="under-text-big under-text">Woojin lim (2022-2022, now in military service)</span> 
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Sunjin Na (2022-2022)</span> 
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Youngeun Choi (2019-2021)</span>
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Seungah Oh (2021-2021)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divide-container undergraduate-activities-3">
+                <div class="main-content">
+                    <div class="graduate student-divide">
+                        <div class="topic-small student-topic">
+                            Undergraduate capstone design
+                        </div>
+                        <div class="text-content-2">
+                            <span class="under-text-big under-text">Isu Jeong, Seungwoo Baek, Eunsol An (2021)</span> 
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Wonik Jang (2021)</span> 
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Youngeun Choi, Hayoung Jo, Yujin Kim (2022)</span>
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Geonwoo JI, Euiyeon Jo, Donghyeon Lee, Hanyoung Kim (2023)</span>
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Seungah Oh, Chaewon Song, Hyeree Lee, Seonju Park (2023)</span>
+                            <br>
+                            <br>
+                            <span class="under-text-big under-text">Seongchan Lee, Hyeonwoo Lee, Honggyun Im, Junhee Choi (2023)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divide-container undergraduate-activities-2">
+                <div class="main-content">
+                    <div class="graduate student-divide">
+                        <div class="topic-small student-topic">
+                            Undergraduate Alumni (Bachelor)
+                        </div> 
+                        <div class="student-information">
+                            <div class="baek student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Seungwoo Baek
+                                    <div class="under-text">
+                                        swbaek97 AT gmail.com
+                                        <br>
+                                        2017-2021
+                                        <br>
+                                        Now, master's student in Gwangju Institute of Science and Technology (GIST)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="isu student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Isu Jeong
+                                    <div class="under-text">
+                                        isuu.jeong AT gmail.com
+                                        <br>
+                                        2017-2021
+                                        <br>
+                                        Now, master's  student in Ulsan National Institute of Science and Technology (UNIST)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="eunsol student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Eunsol An
+                                    <div class="under-text">
+                                        eunsol.iot AT gmail.com
+                                        <br>
+                                        2017-2021
+                                        <br>
+                                        Now, master's  student in Gwangju Institute of Science and Technology (GIST)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="student-information">
+                            <div class="yujin student-picture">
+                            </div>
+                            <div class="student-content">
+                                <div class="text-content">
+                                    Yujin Kim
+                                    <div class="under-text">
+                                        ygim7123 AT gmail.com
+                                        <br>
+                                        2017-2022
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">ubicompteam@gmail.com</div>
+    </div>
+    <script>
+        let $fixHeader = document.querySelector(".fix-header");
+        let $headerScrolled = document.querySelector(".header-scrolled");
+
+        window.addEventListener('scroll', () => {
+            console.log(window.scrollX, window.scrollY);
+            if(window.scrollY >= 128) {
+                $fixHeader.classList.add('header-scrolled');
+            }
+            else if(window.scrollY < 128) {
+                $fixHeader.classList.remove('header-scrolled');
+            }
+        });
+    
+    </script>
